@@ -45,3 +45,28 @@ def save_ims(filename, ims):
 
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()
+
+
+def show_ims(ims):
+    n, h, w, c = ims.shape
+
+    # Plot the images on a grid
+    rows = int(math.ceil(math.sqrt(n)))
+    cols = int(round(math.sqrt(n)))
+
+    # Each subplot should have the same resolutions as the image dimensions
+
+    # TODO: Consider proper heights and widths for the subplots
+    h = 64
+    w = 64
+
+    fig, axes = plt.subplots(rows, cols, figsize=(h, w))
+    fig.subplots_adjust(hspace=0, wspace=0)
+
+    for i, ax in enumerate(axes.flat):
+        ax.axis('off')  # Hide x, y axes completely
+        if i < n:
+            ax.imshow(ims[i])
+
+    plt.show()
+    plt.clf()
