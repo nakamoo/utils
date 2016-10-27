@@ -47,7 +47,7 @@ def save_ims(filename, ims):
     plt.clf()
 
 
-def show_ims(ims):
+def show_ims(ims, gray=False):
     n, h, w, c = ims.shape
 
     # Plot the images on a grid
@@ -66,7 +66,11 @@ def show_ims(ims):
     for i, ax in enumerate(axes.flat):
         ax.axis('off')  # Hide x, y axes completely
         if i < n:
-            ax.imshow(ims[i])
+            if gray:
+                ax.imshow(ims[i], cmap=matplotlib.cm.gray)
+            else:
+                ax.imshow(ims[i])
+
 
     plt.show()
     plt.clf()
