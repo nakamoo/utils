@@ -3,7 +3,8 @@ import math
 import numpy as np
 import cv2 as cv
 import matplotlib
-matplotlib.use('Agg')  # Workaround to save images when running over ssh sessions
+# matplotlib.use('Agg')  # Workaround to save images when running over ssh sessions
+matplotlib.use('tkagg')
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
@@ -57,8 +58,8 @@ def show_ims(ims, gray=False):
     # Each subplot should have the same resolutions as the image dimensions
 
     # TODO: Consider proper heights and widths for the subplots
-    h = 64
-    w = 64
+    h = 84
+    w = 84
 
     fig, axes = plt.subplots(rows, cols, figsize=(h, w))
     fig.subplots_adjust(hspace=0, wspace=0)
@@ -67,10 +68,9 @@ def show_ims(ims, gray=False):
         ax.axis('off')  # Hide x, y axes completely
         if i < n:
             if gray:
-                ax.imshow(ims[i], cmap=matplotlib.cm.gray)
+                ax.imshow(ims[i].squeeze(), cmap=matplotlib.cm.gray)
             else:
                 ax.imshow(ims[i])
-
 
     plt.show()
     plt.clf()
