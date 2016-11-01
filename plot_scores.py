@@ -1,8 +1,9 @@
 import argparse
 
+import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
-
+matplotlib.use('tkagg')
 
 def plot_scores(filename, title=None, skip=0):
     scores = pd.read_csv(filename, delimiter=',', skiprows=range(1, skip+1))
