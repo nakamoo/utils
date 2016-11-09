@@ -53,11 +53,12 @@ def random_contrast(image, lower=0.2, upper=1.8, seed=None):
 class Data(object):
     def __init__(self):
         data = load_image_list('data.txt')
+        random.seed(100)
         random.shuffle(data)
         n_data = len(data)
         self.insize = 128
-        self.train = data[:n_data / 5 * -1]
-        self.test = data[n_data / 5 * -1:]
+        self.train = data[:n_data / 3 * -1]
+        self.test = data[n_data / 3 * -1:]
         self.N = len(self.train)
         self.crop_noize = 7
         self.TEST_N = len(self.test)
