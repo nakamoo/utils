@@ -67,8 +67,8 @@ class Data(object):
         # Data loading routine
         # random crop
         if train:
-            resize_img = Image.open(path).resize((self.insize + self.crop_noize
-                                                  , self.insize + self.crop_noize))
+            resize_img = Image.open(path).resize((self.insize + self.crop_noize,
+                                                  self.insize + self.crop_noize))
             img = np.asarray(resize_img).transpose(2, 0, 1)
             top = random.randint(0, self.crop_noize)
             left = random.randint(0, self.crop_noize)
