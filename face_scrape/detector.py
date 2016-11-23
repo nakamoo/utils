@@ -1,13 +1,17 @@
 import cv2
 import numpy as np
 import math
+import os
 from math import sin, cos
 
 max_size = 720
 
 def detect(img):
-    cascade_f = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
-    cascade_e = cv2.CascadeClassifier('haarcascade_eye.xml')
+    base = os.path.dirname(os.path.abspath(__file__))
+    f_file = os.path.normpath(os.path.join(base, 'haarcascade_frontalface_alt2.xml'))
+    e_file = os.path.normpath(os.path.join(base, 'haarcascade_eye.xml'))
+    cascade_f = cv2.CascadeClassifier(f_file)
+    cascade_e = cv2.CascadeClassifier(e_file)
     # resize if learch image
     rows, cols, _ = img.shape
     if max(rows, cols) > max_size:
