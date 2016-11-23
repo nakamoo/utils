@@ -56,7 +56,7 @@ class Data(object):
         random.seed(seed)
         random.shuffle(data)
         n_data = len(data)
-        self.insize = 128
+        self.insize = 256
         self.train = data[:n_data / k * -1]
         self.test = data[n_data / k * -1:]
         self.N = len(self.train)
