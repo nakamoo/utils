@@ -73,4 +73,4 @@ def show_ims(ims, gray=False):
                 ax.imshow(ims[i])
 
     plt.show()
-    plt.clf()
+    fig.clf()
